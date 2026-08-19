@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "Оно",
+    "year": 2017,
+    "rating": 7.3,
+    "ageRating": "18+",
+    "duration": "2 ч 15 мин",
+    "genres": ["Ужасы", "Детективный фильм"],
+    "posterUrl": "/posters/poster-it-1.jpg",
+    "backdropUrl": "/posters/bg-it-1.jpg",
+    "videoUrl": "https://vkvideo.ru/video_ext.php?oid=-187750432&id=456243534&hd=4",
+    "description": "Действие происходит в вымышленном американском городке Дерри, штат Мэн. Осенью 1988 года при загадочных обстоятельствах пропадает шестилетний Джорджи Денбро. Его старший брат Билл отказывается верить в смерть мальчика.",
+    "cast": [
+      {
+        "name": "Билл Скарсгард",
+        "role": "Пеннивайз / Клоун",
+        "photo": "/actors/bill-skarsgard.webp"
+      },
+      {
+        "name": "Джейден Либехер",
+        "role": "Билл Денбро",
+        "photo": "/actors/jayden-martell.jpg"
+      },
+      {
+        "name": "София Лиллис",
+        "role": "Беверли Марш",
+        "photo": "/actors/sophia-lillis.jpg"
+      }
+    ]
+  }
+]

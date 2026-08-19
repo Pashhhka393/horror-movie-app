@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Roboto, Griffy } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const montserrat = Montserrat({
+  variable: "--montserrat-font",
+  display: "swap",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const roboto = Roboto({
+  variable: "--roboto-font",
+  display: "swap",
+});
+const griffy = Griffy({
+  variable: "--griffy-font",
+  display: "swap",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -21,9 +25,40 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${roboto.variable} ${griffy.variable} `}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body
+        className={`min-h-full flex flex-col bg-black ${montserrat.variable} ${roboto.variable} ${griffy.variable}`}
+      >
+        <header>
+          <div className="header-items">
+            <span className="logo-glow  font-griffy text-4xl text-[#ffc907]">
+              Nightfall
+            </span>
+
+            <nav aria-label="Главная навигация">
+              <ul className="list-items">
+                <li className="active">HOME</li>
+                <li className="font-bold text-[#4a4a4a]">FAVOURITE</li>
+                <li className="font-bold text-[#4a4a4a]">MOVIES</li>
+              </ul>
+            </nav>
+
+            <form
+              className="form text-[#4a4a4a] rounded-2xl bg-[#1a1a1a]"
+              action="#"
+            >
+              <input
+                className="bg-transparent border-none outline-none flex-1 font-bold"
+                type="search"
+                placeholder="SEARCH"
+              />
+              <img src="/search-image.svg" alt="search-image" />
+            </form>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
