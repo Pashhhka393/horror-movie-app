@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto, Griffy } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header/Header";
 
 const montserrat = Montserrat({
   variable: "--montserrat-font",
@@ -30,8 +31,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body
         className={`min-h-full flex flex-col bg-black ${montserrat.variable} ${roboto.variable} ${griffy.variable}`}
       >
-        
-        {children}
+        <div className="bg-wrapper">
+          <Header />
+          <main> {children}</main>
+        </div>
       </body>
     </html>
   );

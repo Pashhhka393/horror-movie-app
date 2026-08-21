@@ -1,3 +1,5 @@
+import "./header.css";
+
 const Header = () => {
   return (
     <header>
@@ -6,7 +8,7 @@ const Header = () => {
           Nightfall
         </span>
 
-        <nav aria-label="Главная навигация">
+        <nav className="nav-links" aria-label="Главная навигация">
           <ul className="list-items">
             <li className="active">HOME</li>
             <li className="font-bold text-[#4a4a4a]">FAVOURITE</li>

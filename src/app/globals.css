@@ -10,56 +10,23 @@ body {
   font-family: var(--font-family);
 }
 
-header {
-  padding: 20px 0;
-  box-shadow: 0 4px 15px 0 rgba(139, 0, 0, 0.6);
-  background: linear-gradient(
-    90.53deg,
-    rgba(0, 0, 0, 0.9) 0.45%,
-    rgba(139, 0, 0, 0.7) 105.51%
-  );
+.bg-wrapper {
+  min-height: 100vh;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.45) 100%
+    ),
+    url("/bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.header-items {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.logo-glow {
-  text-shadow: 0 0 10px rgba(255, 201, 7, 0.5);
-}
-
-.font-griffy {
-  font-family: var(--third-family);
-}
-
-.list-items {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.list-items li {
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.list-items li:hover {
-  opacity: 0.8;
-}
-
-.active {
-  font-weight: 700;
-  font-size: 16px;
-  color: #8b0000;
-}
-
-.form {
-  width: 100%;
-  max-width: 300px;
-  padding: 6px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
