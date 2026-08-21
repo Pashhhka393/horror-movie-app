@@ -4,7 +4,6 @@ import MovieCards from "@/components/MovieCards/MovieCards";
 export default function Home() {
   return (
     <>
-      <Hero />
       <MovieCards />
     </>
   );

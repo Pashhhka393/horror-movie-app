@@ -10,11 +10,11 @@ const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <div className="max-w-[170px] mt-4 flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10 ">
       <Image
-        className="rounded-lg  shadow-[0_10px_40px_rgba(220,38,38,0.3)]"
+        className="rounded-lg  shadow-[0_10px_40px_rgba(220,38,38,0.3)] w-[170px] h-[250px] object-cover "
         src={movie.posterUrl}
         alt="poster-image"
         width="170"
-        height="235"
+        height="230"
       />
       <p className="text-white font-bold mt-2">{movie.title}</p>
       <p className="text-xs text-[#afafaf] font-bold self-start">

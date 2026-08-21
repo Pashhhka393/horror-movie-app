@@ -17,7 +17,7 @@ const Header = () => {
         </nav>
 
         <form
-          className="form text-[#4a4a4a] rounded-2xl bg-[#1a1a1a]"
+          className="form text-[#e6e6e6] rounded-2xl bg-[#3a3a3a]"
           action="#"
         >
           <input
