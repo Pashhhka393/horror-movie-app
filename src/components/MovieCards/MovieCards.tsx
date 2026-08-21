@@ -1,7 +1,24 @@
-import { ArrowBigDownDash, Eye, HeartIcon } from "lucide-react";
-import Image from "next/image";
+"use client";
+import { ArrowBigDownDash } from "lucide-react";
+import { useEffect, useState } from "react";
+import MovieCard from "./MovieCard/MovieCard";
+import { moviesDataType } from "@/data/movies";
 
 const MovieCards = () => {
+  const [movies, setMovies] = useState<moviesDataType[]>([]);
+
+  useEffect(() => {
+    fetch("/api/movies")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Ошибка сервера" + res.status);
+        }
+        return res.json();
+      })
+      .then((data) => setMovies(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className="container">
       <section className="mt-20 rounded-3xl bg-[rgba(11,15,22,0.47)]">
@@ -16,37 +33,10 @@ const MovieCards = () => {
             </button>
           </div>
 
-          <div>
-            <div className="max-w-[170px] mt-2.5 flex flex-col items-center cursor-pointer ">
-              <Image
-                className="rounded-lg  shadow-[0_10px_40px_rgba(220,38,38,0.3)]"
-                src="/posters/poster-it-1.jpg"
-                alt="poster-image"
-                width="170"
-                height="235"
-              />
-              <p className="text-white font-bold mt-2">Оно</p>
-              <p className="text-xs text-[#afafaf] font-bold self-start">
-                2017
-              </p>
-
-              <div className="w-full mt-1 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <Image
-                    src="/rating-image.svg"
-                    alt="rating-image"
-                    width="30"
-                    height="15"
-                  />
-                  <span className="text-xs text-[#ffc907] font-bold">8.6</span>
-                </div>
-
-                <div className="flex items-center gap-1 cursor-pointer">
-                  <Eye fill="white" />
-                  <HeartIcon fill="white" />
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center flex-wrap justify-center gap-9">
+            {movies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
           </div>
         </div>
       </section>
