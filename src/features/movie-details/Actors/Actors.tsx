@@ -11,7 +11,7 @@ const Actors = ({ movie }: ActorsProps) => {
       <div className="container">
         <h2 className="font-bold text-center text-4xl mb-2.5">Ключевые роли</h2>
 
-        <div className="mb-80 flex justify-center items-center flex-wrap gap-8">
+        <div className="mb-40 flex justify-center items-center flex-wrap gap-8">
           {movie.cast.map((actor) => {
             return <Actor key={actor.name} actor={actor} />;
           })}

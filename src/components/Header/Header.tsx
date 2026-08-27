@@ -1,7 +1,11 @@
+"use client";
 import Link from "next/link";
 import "./header.css";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
+
   return (
     <header>
       <div className="header-items">
@@ -14,7 +18,16 @@ const Header = () => {
 
         <nav className="nav-links" aria-label="Главная навигация">
           <ul className="list-items">
-            <li className="active">HOME</li>
+            <Link href="/">
+              {" "}
+              <li
+                className={
+                  pathname === "/" ? "active" : "font-bold text-[#4a4a4a]"
+                }
+              >
+                HOME
+              </li>
+            </Link>
             <li className="font-bold text-[#4a4a4a]">FAVOURITE</li>
             <li className="font-bold text-[#4a4a4a]">MOVIES</li>
           </ul>
