@@ -8,13 +8,13 @@ export default function Loading() {
 
       <div className="flex flex-col min-h-200 justify-center">
         <div className="flex items-center justify-center gap-8">
-          <Skeleton className="w-[400px] h-[600px] rounded-xl" />
+          <Skeleton className="w-100 h-150 rounded-xl" />
 
           <div className="flex flex-col gap-4">
-            <Skeleton className="w-[300px] h-[30px]" />
-            <Skeleton className="w-[200px] h-[30px]" />
-            <Skeleton className="w-[400px] h-[100px]" />
-            <Skeleton className="w-[200px] h-[40px]" />
+            <Skeleton className="w-75 h-7.5" />
+            <Skeleton className="w-50 h-7.5" />
+            <Skeleton className="w-100 h-25" />
+            <Skeleton className="w-50 h-10" />
           </div>
         </div>
       </div>

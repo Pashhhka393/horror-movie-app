@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard/MovieCard";
 import { moviesDataType } from "@/features/movie-details/data/movies";
 import Link from "next/link";
+import { Skeleton } from "../ui/skeleton";
 
 const MovieCards = () => {
   const [movies, setMovies] = useState<moviesDataType[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetch("/api/movies")
@@ -16,7 +18,10 @@ const MovieCards = () => {
         }
         return res.json();
       })
-      .then((data) => setMovies(data))
+      .then((data) => {
+        setMovies(data);
+        setIsLoading(false);
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -70,11 +75,15 @@ const MovieCards = () => {
           </div>
 
           <div className="flex items-center flex-wrap justify-center gap-9">
-            {movies.map((movie) => (
-              <Link key={movie.id} href={`/movies/${movie.id}`}>
-                <MovieCard movie={movie} />
-              </Link>
-            ))}
+            {isLoading ? (
+              <div className="m-25 w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin" />
+            ) : (
+              movies.map((movie) => (
+                <Link key={movie.id} href={`/movies/${movie.id}`}>
+                  <MovieCard movie={movie} />
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </section>
