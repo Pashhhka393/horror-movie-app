@@ -2,28 +2,23 @@ import Image from "next/image";
 import { moviesDataType } from "../../data/movies";
 
 interface ActorProps {
-  movie: moviesDataType;
+  actor: { name: string; role: string; photo: string };
 }
 
-const Actor = ({ movie }: ActorProps) => {
+const Actor = ({ actor }: ActorProps) => {
   return (
-    <>
-      {movie.cast.map((actor) => {
-        return (
-          <div className="max-w-65 flex flex-col items-center gap-0.5">
-            <Image
-              className="rounded-4xl"
-              src={actor.photo}
-              alt="actors-image"
-              width={250}
-              height={250}
-            />
-            <span className=" mt-2.5 font-bold text-xl">{actor.name}</span>
-            <span className="mt-1.5 font-extralight text-xl">{actor.role}</span>
-          </div>
-        );
-      })}
-    </>
+    <div className="relative max-w-62.5 max-h-112.5 flex flex-col items-center gap-0.5">
+      <Image
+        className="object-cover"
+        src={actor.photo}
+        alt="actors-image"
+        width="250"
+        height="450"
+      />
+
+      <span className=" mt-2.5 font-bold text-xl ">{actor.name}</span>
+      <span className="mt-1.5 font-extralight text-xl">{actor.role}</span>
+    </div>
   );
 };
 

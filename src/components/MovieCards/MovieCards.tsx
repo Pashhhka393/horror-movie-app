@@ -71,8 +71,8 @@ const MovieCards = () => {
 
           <div className="flex items-center flex-wrap justify-center gap-9">
             {movies.map((movie) => (
-              <Link href={`/movies/${movie.id}`}>
-                <MovieCard key={movie.id} movie={movie} />
+              <Link key={movie.id} href={`/movies/${movie.id}`}>
+                <MovieCard movie={movie} />
               </Link>
             ))}
           </div>
