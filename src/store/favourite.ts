@@ -4,6 +4,7 @@ import { create } from "zustand";
 interface FavouriteStore {
   favourites: moviesDataType[];
   addToFavourite: (movie: moviesDataType) => void;
+  removeFromFavourite: (id: string) => void;
 }
 
 export const useFavouriteStore = create<FavouriteStore>((set) => {
@@ -11,10 +12,18 @@ export const useFavouriteStore = create<FavouriteStore>((set) => {
     favourites: [],
     addToFavourite: (movie) => {
       set((state) => {
-        if (state.favourites.includes(movie)) {
+        if (state.favourites.some(({ id }) => id === movie.id)) {
           return state;
         }
         return { favourites: [...state.favourites, movie] };
+      });
+    },
+    removeFromFavourite: (id) => {
+      set((state) => {
+        const newFilteredFavourites = state.favourites.filter(
+          (movie) => movie.id !== id,
+        );
+        return { favourites: newFilteredFavourites };
       });
     },
   };

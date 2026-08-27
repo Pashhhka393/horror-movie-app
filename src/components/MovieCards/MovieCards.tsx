@@ -25,10 +25,6 @@ const MovieCards = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  //Zustand
-  const favouritesMovies = useFavouriteStore((state) => state.favourites);
-  const addToFavourite = useFavouriteStore((state) => state.addToFavourite);
-
   return (
     <div className="container">
       <section className="mt-20 mb-20 rounded-3xl bg-[rgba(11,15,22,0.47)]">

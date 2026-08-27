@@ -1,6 +1,7 @@
 "use client";
 
 import { moviesDataType } from "@/features/movie-details/data/movies";
+import { useFavouriteStore } from "@/store/favourite";
 import { Eye, HeartIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -10,7 +11,10 @@ interface MovieCardProps {
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
-  const [liked, setLiked] = useState<boolean>(false); //Для иконки сердечка
+  //Zustand
+  const addToFavourite = useFavouriteStore((state) => state.addToFavourite);
+  const favourites = useFavouriteStore((state) => state.favourites);
+  const liked = favourites.some(({ id }) => id === movie.id);
 
   return (
     <div className="max-w-42.5 mt-4 flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10 ">
@@ -45,7 +49,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
             fill={liked ? "red" : "white"}
             onClick={(e) => {
               e.preventDefault();
-              setLiked(!liked);
+              addToFavourite(movie);
             }}
           />
         </div>
