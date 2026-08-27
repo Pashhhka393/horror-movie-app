@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard/MovieCard";
 import { moviesDataType } from "@/features/movie-details/data/movies";
 import Link from "next/link";
-import { Skeleton } from "../ui/skeleton";
+import { useFavouriteStore } from "@/store/favourite";
 
 const MovieCards = () => {
-  const [movies, setMovies] = useState<moviesDataType[]>([]);
+  const [movies, setMovies] = useState<moviesDataType[]>([]); //Все фильмы
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -24,6 +24,10 @@ const MovieCards = () => {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  //Zustand
+  const favouritesMovies = useFavouriteStore((state) => state.favourites);
+  const addToFavourite = useFavouriteStore((state) => state.addToFavourite);
 
   return (
     <div className="container">

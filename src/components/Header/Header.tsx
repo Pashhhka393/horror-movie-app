@@ -28,7 +28,17 @@ const Header = () => {
                 HOME
               </li>
             </Link>
-            <li className="font-bold text-[#4a4a4a]">FAVOURITE</li>
+            <Link href="/favourite">
+              <li
+                className={
+                  pathname === "/favourite"
+                    ? "active"
+                    : "font-bold text-[#4a4a4a]"
+                }
+              >
+                FAVOURITE
+              </li>
+            </Link>
             <li className="font-bold text-[#4a4a4a]">MOVIES</li>
           </ul>
         </nav>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { moviesDataType } from "../../data/movies";
 
 interface ActorProps {
   actor: { name: string; role: string; photo: string };
@@ -7,9 +6,14 @@ interface ActorProps {
 
 const Actor = ({ actor }: ActorProps) => {
   return (
-    <div className="relative max-w-62.5 max-h-112.5 flex flex-col items-center gap-0.5">
+    <div
+      className="relative
+     max-w-62.5
+      max-h-112.5
+       flex flex-col items-center gap-0.5 "
+    >
       <Image
-        className="object-cover"
+        className="object-cover rounded-3xl"
         src={actor.photo}
         alt="actors-image"
         width="250"

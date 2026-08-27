@@ -1,12 +1,17 @@
+"use client";
+
 import { moviesDataType } from "@/features/movie-details/data/movies";
 import { Eye, HeartIcon } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 interface MovieCardProps {
   movie: moviesDataType;
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
+  const [liked, setLiked] = useState<boolean>(false); //Для иконки сердечка
+
   return (
     <div className="max-w-42.5 mt-4 flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10 ">
       <Image
@@ -36,7 +41,13 @@ const MovieCard = ({ movie }: MovieCardProps) => {
 
         <div className="flex items-center gap-1 cursor-pointer">
           <Eye fill="white" />
-          <HeartIcon fill="white" />
+          <HeartIcon
+            fill={liked ? "red" : "white"}
+            onClick={(e) => {
+              e.preventDefault();
+              setLiked(!liked);
+            }}
+          />
         </div>
       </div>
     </div>
