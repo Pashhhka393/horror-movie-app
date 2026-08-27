@@ -51,7 +51,7 @@ const MoviePage = () => {
 
                 <Button
                   variant="outline"
-                  className="border-gray-600 text-gray-400 hover:bg-gray-800 hover:text-white px-6 py-3  cursor-pointer"
+                  className="border-none text-gray-400 hover:bg-gray-500 hover:text-white px-6 py-3  cursor-pointer"
                 >
                   <Heart className="w-4 h-4 mr-2" />В избранное
                 </Button>

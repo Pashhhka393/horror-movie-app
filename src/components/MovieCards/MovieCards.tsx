@@ -3,6 +3,7 @@ import { ArrowBigDownDash } from "lucide-react";
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard/MovieCard";
 import { moviesDataType } from "@/features/movie-details/data/movies";
+import Link from "next/link";
 
 const MovieCards = () => {
   const [movies, setMovies] = useState<moviesDataType[]>([]);
@@ -70,7 +71,9 @@ const MovieCards = () => {
 
           <div className="flex items-center flex-wrap justify-center gap-9">
             {movies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
+              <Link href={`/movies/${movie.id}`}>
+                <MovieCard key={movie.id} movie={movie} />
+              </Link>
             ))}
           </div>
         </div>

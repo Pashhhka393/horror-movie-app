@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Actors from "@/features/movie-details/Actors/Actors";
 import MoviePage from "../../../features/movie-details/components/MoviePage";
 
 interface MoviePageProps {
@@ -7,7 +7,12 @@ interface MoviePageProps {
 
 const Movie = async ({ params }: MoviePageProps) => {
   const { id } = await params;
-  return <MoviePage />;
+  return (
+    <>
+      <MoviePage />
+      <Actors />
+    </>
+  );
 };
 
 export default Movie;

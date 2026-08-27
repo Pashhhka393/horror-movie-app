@@ -1,12 +1,16 @@
+import Link from "next/link";
 import "./header.css";
 
 const Header = () => {
   return (
     <header>
       <div className="header-items">
-        <span className="logo-glow  font-griffy text-4xl text-[#ffc907]">
-          Nightfall
-        </span>
+        <Link href="/">
+          {" "}
+          <span className="logo-glow  font-griffy text-4xl text-[#ffc907]">
+            Nightfall
+          </span>
+        </Link>
 
         <nav className="nav-links" aria-label="Главная навигация">
           <ul className="list-items">

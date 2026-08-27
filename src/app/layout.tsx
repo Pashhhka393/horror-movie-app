@@ -36,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       >
         <div className="bg-wrapper">
           <Header />
-          <main> {children}</main>
+          <main>{children}</main>
         </div>
       </body>
     </html>
