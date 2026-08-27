@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat, Roboto, Griffy } from "next/font/google";
+import { Montserrat, Roboto, Griffy, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const montserrat = Montserrat({
   variable: "--montserrat-font",
@@ -26,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${roboto.variable} ${griffy.variable} `}
+      className={cn(montserrat.variable, roboto.variable, griffy.variable, "font-sans", geist.variable)}
     >
       <body
         className={`min-h-full flex flex-col bg-black ${montserrat.variable} ${roboto.variable} ${griffy.variable}`}

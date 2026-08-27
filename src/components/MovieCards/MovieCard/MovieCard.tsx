@@ -1,4 +1,4 @@
-import { moviesDataType } from "@/data/movies";
+import { moviesDataType } from "@/features/movie-details/data/movies";
 import { Eye, HeartIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -8,9 +8,9 @@ interface MovieCardProps {
 
 const MovieCard = ({ movie }: MovieCardProps) => {
   return (
-    <div className="max-w-[170px] mt-4 flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10 ">
+    <div className="max-w-42.5 mt-4 flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10 ">
       <Image
-        className="rounded-lg  shadow-[0_10px_40px_rgba(220,38,38,0.3)] w-[170px] h-[250px] object-cover "
+        className="rounded-lg  shadow-[0_10px_40px_rgba(220,38,38,0.3)] w-42.5 h-62.5 object-cover "
         src={movie.posterUrl}
         alt="poster-image"
         width="170"
