@@ -13,6 +13,9 @@ interface MovieCardProps {
 const MovieCard = ({ movie }: MovieCardProps) => {
   //Zustand
   const addToFavourite = useFavouriteStore((state) => state.addToFavourite);
+  const removeFromFavourite = useFavouriteStore(
+    (state) => state.removeFromFavourite,
+  );
   const favourites = useFavouriteStore((state) => state.favourites);
   const liked = favourites.some(({ id }) => id === movie.id);
 
@@ -49,7 +52,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
             fill={liked ? "red" : "white"}
             onClick={(e) => {
               e.preventDefault();
-              addToFavourite(movie);
+              liked ? removeFromFavourite(movie.id) : addToFavourite(movie);
             }}
           />
         </div>
